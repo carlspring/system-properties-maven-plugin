@@ -1,3 +1,1 @@
-This is a Maven plugin for relocating artifacts in a repository (Nexus, Artifactory, etc).
-You will need to execute it's goals on the remote machines.
-For more details on how to use the plugin, check the USAGE file.
+This is a simple Maven plugin for manipulating System properties.
