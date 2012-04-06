@@ -1,0 +1,59 @@
+
+
+Setting System Properties Example
+---------------------------------
+This example will set the the System properties defined below:
+
+    <plugin>
+        <groupId>org.carlspring.maven</groupId>
+        <artifactId>system-properties-maven-plugin</artifactId>
+
+        <executions>
+            <execution>
+                <id>set-properties</id>
+
+                <phase>test-compile</phase>
+                <goals>
+                    <goal>set</goal>
+                </goals>
+
+                <configuration>
+                    <properties>
+                        <property>
+                            <name>property1</name>
+                            <value>foo bar</value>
+                        </property>
+                        <property>
+                            <name>property2</name>
+                            <value>bar foo</value>
+                        </property>
+                    </properties>
+                </configuration>
+
+            </execution>
+        </executions>
+    </plugin>
+
+Please, note that before setting the System properties, the plugin will backup the underlying
+System.getProperties object in order to be able to rollback to it at a later time, if necessary.
+
+
+Resetting System Properties Example
+-----------------------------------
+As explained in the example above, you can rollback to the original System properties, like this:
+
+    <plugin>
+        <groupId>org.carlspring.maven</groupId>
+        <artifactId>system-properties-maven-plugin</artifactId>
+
+        <executions>
+            <execution>
+                <id>reset-properties</id>
+
+                <phase>test</phase>
+                <goals>
+                    <goal>reset</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
